@@ -133,12 +133,15 @@
 				</div>
 				<div class="youtubeLink">
 					<img
+					    src="${pageContext.request.contextPath}/resources/img/youtube.png"
+					    alt="youtube" class="search-image" onclick="window.location.href = 'https://www.youtube.com/results?search_query=' + encodeURIComponent('${cookInfo.CKG_NM}')"> 
+					<img
 						src="${pageContext.request.contextPath}/resources/img/icon-twitter.png"
-						alt="검색" class="search-image" onclick="shareTwitter()" /> <img
+						alt="X" class="search-image" onclick="shareTwitter()" /> <img
 						src="${pageContext.request.contextPath}/resources/img/icon-facebook.png"
-						alt="검색" class="search-image" onclick="shareFacebook()" /> <img
+						alt="facebook" class="search-image" onclick="shareFacebook()" /> <img
 						src="${pageContext.request.contextPath}/resources/img/copy-link.png"
-						alt="검색" class="search-image" onclick="clipBoard()" />
+						alt="copy" class="search-image" onclick="clipBoard()" />
 				</div>
 			</div>
 			<div class="blank_bottom"></div>
@@ -175,8 +178,8 @@
 
 							<!-- 댓글 내용 -->
 							<div class="comment-content">
-								<span id="content-text-${board.content}" class="comment-text">${board.content}</span>
-								<textarea name="new_content" id="content-edit-${board.content}"
+								<span id="content-text-${board.content}-${board.board_no}" class="comment-text">${board.content}</span>
+								<textarea name="new_content" id="content-edit-${board.content}-${board.board_no}"
 									class="comment-textarea" style="display: none">${board.content}</textarea>
 							</div>
 
@@ -184,7 +187,7 @@
 								<div class="comment-buttons">
 									<c:if test="${board.userid == loginedMemberVo.userid}">
 										<!-- 수정 버튼 -->
-										<form id="updateForm-${board.content}"
+										<form id="updateForm-${board.content}-${board.board_no}"
 											action="/cook/board/updateComment" method="POST">
 											<input type="hidden" name="board_no"
 												value="${board.board_no}"> <input type="hidden"
@@ -193,8 +196,8 @@
 											<input type="hidden" name="userid" value="${board.userid}">
 											<input type="hidden" name="CKG_NM" value="${board.CKG_NM}">
 											<input type="submit" value="수정"
-												id="updateButton-${board.content}"
-												onclick="return editComment('${board.content}')">
+												id="updateButton-${board.content}-${board.board_no}"
+												onclick="return editComment('${board.content}','${board.board_no}')">
 										</form>
 									</c:if>
 									<c:if

@@ -197,7 +197,7 @@ public class ListDao {
 	 * 북마크 데이터를 가져오는 메서드
 	 */
 	public List<ListVo> getBookmarks(String userId) {
-		String sql = "SELECT c.cook_no, c.CKG_NM, c.CKG_IMG_URL " + "FROM cookbookmark cb "
+		String sql = "SELECT c.cook_no, c.CKG_NM, c.CKG_IMG_URL ,c.read_count " + "FROM cookbookmark cb "
 				+ "JOIN cooks c ON cb.CKG_NM = c.CKG_NM AND c.cook_no = cb.cook_no " + "WHERE cb.userid = ?";
 
 		return jdbcTemplate.query(sql, new Object[] { userId }, new RowMapper<ListVo>() {
@@ -207,6 +207,8 @@ public class ListDao {
 				listVo.setCook_no(rs.getInt("cook_no"));
 				listVo.setCKG_NM(rs.getString("CKG_NM"));
 				listVo.setCKG_IMG_URL(rs.getString("CKG_IMG_URL"));
+				listVo.setRead_count(rs.getInt("read_count"));
+				
 				return listVo;
 			}
 		});

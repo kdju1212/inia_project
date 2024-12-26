@@ -34,6 +34,5 @@
             </c:if>
         </form>
     </div>
-	<%@ include file="../footer.jsp"%>
 </body>
 </html>

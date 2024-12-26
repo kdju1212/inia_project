@@ -54,11 +54,11 @@ function bookmark(event) {
 	document.getElementById("bookmarkForm").submit();
 }
 
-function editComment(content) {
-	var contentText = document.getElementById("content-text-" + content);
-	var contentTextarea = document.getElementById("content-edit-" + content);
-	var updateForm = document.getElementById("updateForm-" + content);
-	var updateButton = document.getElementById("updateButton-" + content);
+function editComment(content,board_no) {
+	var contentText = document.getElementById("content-text-" + content + "-" + board_no);
+	var contentTextarea = document.getElementById("content-edit-" + content+ "-"+board_no);
+	var updateForm = document.getElementById("updateForm-" + content+ "-"+board_no);
+	var updateButton = document.getElementById("updateButton-" + content+ "-"+board_no);
 
 	contentText.style.display = "none";
 	contentTextarea.style.display = "block";

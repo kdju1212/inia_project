@@ -47,13 +47,13 @@
 						value="${cookInfo.CKG_IMG_URL}" />
 				</div>
 				<div id="changeImageRow" style="display: none;" class="form-group">
-					<label for="CKG_IMG_FILE">요리 이미지 *</label> <input type="file"
+					<!--<label for="CKG_IMG_FILE">요리 이미지 *</label>--> <input type="file"
 						name="CKG_IMG_FILE" id="CKG_IMG_FILE">
 				</div>
 			</c:when>
 			<c:otherwise>
 				<div class="form-group">
-					<label for="CKG_IMG_FILE">요리 이미지 *</label> <input type="file"
+					<label for="CKG_IMG_FILE">요리 이미지 *</label><input type="file"
 						name="CKG_IMG_FILE" id="CKG_IMG_FILE">
 				</div>
 			</c:otherwise>
